@@ -1,0 +1,668 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+:root {
+  --pageYellow: #ffb629;
+  --pageBlue: #1c2752;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+.container {
+  min-width: 350px;
+  max-width: 1000px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navLinks {
+  text-decoration: none;
+  list-style: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.navLinks a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+.navLinks a::after {
+  position: absolute;
+  content: "";
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background-color: var(--pageYellow);
+  transition: width 0.3s;
+}
+.navLinks a:hover:after {
+  width: 100%;
+}
+.navLinks.active a::after {
+  width: 100%;
+}
+main {
+  height: 100%;
+}
+/* .section1 {
+  background-image: url("../assets/images/heroPhoto.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+} */
+.section1 {
+  height: calc(100vh - 60px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section1 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.section1 img {
+  position: absolute;
+  z-index: 2;
+  /* background-color: red; */
+  height: 300px;
+}
+.heroSection {
+  position: absolute;
+  left: 20%;
+  width: 500px;
+}
+.heroHeading {
+  background-color: rgba(4, 28, 55, 0.5);
+  width: max-content;
+  border-left: 2px solid var(--pageYellow);
+  padding: 2px 5px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.heroTitle {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.heroSubTitle {
+  font-size: 15px;
+  margin: 10px 0;
+}
+.callToAction {
+  padding: 13px 25px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--pageBlue);
+  transition: all 0.2s ease;
+}
+.callToAction:hover {
+  background-color: var(--pageYellow);
+  box-shadow: 0px 0px 20px 2px rgba(28, 39, 82, 0.4);
+}
+.section2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aboutUsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+}
+.leftAbout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.aboutHeading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #f4f4f4;
+  width: fit-content;
+  padding: 5px 10px;
+}
+.leftAbout h3 {
+  color: var(--pageBlue);
+  font-size: 40px;
+  font-weight: bold;
+}
+.aboutSubtitle {
+  color: #7e7e7e;
+  font-size: 14px;
+}
+.AboutUsBtn {
+  width: fit-content;
+}
+.aboutFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+.aboutFeatures div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.aboutFeatures p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.aboutFeatures p img {
+  height: 23px;
+}
+.rightAbout img {
+  height: 450px;
+}
+
+.AboutUsBtn {
+  border: none;
+  margin-top: 15px;
+}
+.AboutUsBtn a {
+  background-color: var(--pageYellow);
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--pageBlue);
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.25s ease;
+}
+.AboutUsBtn a:hover {
+  background-color: var(--pageBlue);
+  color: var(--pageYellow);
+  box-shadow: 0px 0px 20px 2px rgba(28, 39, 82, 0.3);
+}
+.section3 {
+  background-image: url("../assets/images/ServiceSection.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.serviceSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 0;
+  gap: 40px;
+}
+.serviceTitle {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  padding-bottom: 5px;
+}
+.serviceTitle::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--pageYellow);
+}
+.services {
+  display: flex;
+  gap: 20px;
+}
+.service {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.service:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  transform: scale(1.01);
+}
+
+.service img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+.serviceContent h4 {
+  color: var(--pageBlue);
+  margin-bottom: 10px;
+  font-size: 17px;
+  padding: 10px 0;
+}
+.serviceContent p {
+  color: #7e7e7e;
+  padding: 10px 0;
+}
+.serviceContent a {
+  text-decoration: none;
+  color: #3f3e3e;
+  letter-spacing: 0.9x;
+  padding-bottom: 10px;
+  transition: color 0.2s ease;
+}
+.serviceContent a:hover {
+  color: var(--pageBlue);
+}
+.sLearnMoreBtn {
+  text-decoration: none;
+  color: var(--pageBlue);
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  padding: 10px 15px;
+}
+.sLearnMoreBtn:hover {
+  background-color: var(--pageYellow);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.section4 {
+  background-image: url("../assets/images/Pattern.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.featureSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 0;
+}
+.featureLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.featureLeft p:first-child {
+  color: var(--pageYellow);
+  font-size: 19px;
+  font-weight: 550;
+}
+.featureLeft p {
+  color: #7e7e7e;
+  font-size: 18px;
+}
+.featureLeft h3 {
+  color: #111c54;
+  font-size: 50px;
+  font-weight: bold;
+}
+.featureLeft a {
+  background-color: var(--pageYellow);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  width: fit-content;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  transition: all 0.2s ease;
+}
+.featureLeft a:hover {
+  background-color: var(--pageBlue);
+  color: var(--pageYellow);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.featureRight {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.feature {
+  background-color: white;
+  padding: 20px 10px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.feature:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.feature::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--pageYellow);
+}
+.feature:hover::after {
+  width: 4px;
+}
+.feature h4 {
+  font-weight: bold;
+  font-size: 19px;
+  color: #132238;
+}
+
+.section5 {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.contactSection {
+  position: absolute;
+  height: fit-content;
+  top: 5%;
+  padding: 50px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  gap: 40px;
+}
+.leftcontact {
+  display: flex;
+  flex-direction: column;
+}
+.leftContactText h4 {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--pageBlue);
+  margin-bottom: 20px;
+}
+
+.leftContactText p,
+.rightContact p {
+  color: #87909d;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.leftContact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contactUsDetails {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  padding-right: 80px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.contactUsDetails:hover {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.contactUsDetails img {
+  height: 45px;
+}
+.contactUsDetails div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+}
+.contactUsDetails div h5 {
+  color: #424e60;
+  font-weight: normal;
+}
+.contactMediaLink {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-left: 20px;
+}
+.contactMediaLink a i {
+  font-size: 25px;
+  color: #091242;
+}
+.contactMediaLink a i:hover {
+  color: var(--pageYellow);
+}
+
+.inputBox {
+  position: relative;
+}
+.inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #e6e8eb;
+  outline: none;
+  background: transparent;
+  margin-bottom: 30px;
+}
+.inputBox input:nth-child(4){
+  color: red;
+}
+.inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: var(--pageBlue);
+  pointer-events: none;
+  transition: 0.3s;
+}
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label,
+.inputBox input:hover ~ label {
+  top: -20px;
+  left: 0;
+  color: var(--pageBlue);
+  font-size: 13px;
+}
+.contactFormSubmitBtn {
+  background-color: var(--pageYellow);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  font-size: 18px;
+}
+.contactFormSubmitBtn:hover {
+  background-color: var(--pageBlue);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.footerMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  background-color: #091242;
+}
+.footerImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 5rem;
+}
+.FooterContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  gap: 20px;
+}
+.FooterContact h2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 25px;
+}
+.FooterContact h2 img {
+  margin-right: 10px;
+}
+.companyFooter {
+  font-size: 14px;
+  letter-spacing: 0.9px;
+  margin-bottom: 8px;
+}
+.contactDetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.contactDetail img {
+  height: 50px;
+}
+.contactDetail div {
+  display: flex;
+  flex-direction: column;
+}
+.contactDetail div p a {
+  text-decoration: none;
+  color: white;
+}
+
+.footerPages,
+.footerUtility,
+.footerSubscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footerPages h4,
+.footerUtility h4,
+.footerSubscribe h4 {
+  margin-bottom: 30px;
+  font-weight: normal;
+  letter-spacing: 0.9px;
+}
+
+.footerPages ul,
+.footerUtility ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footerPages ul li,
+.footerUtility ul li {
+  position: relative;
+  padding-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.footerPages ul li::after,
+.footerUtility ul li::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--pageYellow);
+}
+.footerPages ul li:hover:after,
+.footerUtility ul li:hover::after {
+  width: 2px;
+}
+.footerPages ul li:hover,
+.footerUtility ul li:hover {
+  transform: translateX(5px);
+}
+.footerPages a,
+.footerUtility a {
+  text-decoration: none;
+  color: white;
+}
+
+.footerSubscribe input {
+  background-color: transparent;
+  border: 1px solid #4e5683;
+  padding: 15px 10px;
+  color: #4e5683;
+  margin-bottom: 5px;
+}
+
+.sendNow {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: var(--pageYellow);
+  padding: 10px 16px;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+.sendNow:hover {
+  color: var(--pageBlue);
+}
+
+.footerMediaLinks {
+  text-decoration: none;
+}
+.footerMediaLinks i {
+  font-size: 20px;
+  margin-right: 5px;
+  color: white;
+}
+.footerMediaLinks i:hover {
+  color: var(--pageYellow);
+}
+
+hr {
+  background-color: white;
+  height: 0.5px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-width: 0px;
+}
+.copyRight {
+  padding: 10px;
+}
